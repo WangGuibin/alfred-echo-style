@@ -17,4 +17,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
+      - name: Build and Deploy
+        uses: WangGuibin/alfred-echo-style@main
+        env:
+          PERSONAL_TOKEN: ${{ secrets.ALFREDKEYS }}
+          PUBLISH_REPOSITORY: WangGuibin/alfred-echo-style 
+          BRANCH: main 
+          PUBLISH_DIR: ./
       - run: sh packal.sh
